@@ -1,6 +1,20 @@
 # Demo Docker 
 
 ## Inhoud 
+- [Demo Docker](#demo-docker)
+  - [Inhoud](#inhoud)
+    - [Definitie van Docker](#definitie-van-docker)
+    - [Docker vs Virtual Machine](#docker-vs-virtual-machine)
+    - [Containers, images en Dockerfiles](#containers-images-en-dockerfiles)
+    - [Docker installatie](#docker-installatie)
+    - [Docker run command](#docker-run-command)
+  - ["Advanced" stuff:](#advanced-stuff)
+    - [Docker Compose](#docker-compose)
+    - [Volume binding](#volume-binding)
+    - [Docker networking](#docker-networking)
+    - [Demo via GitHub](#demo-via-github)
+  - [(Re)sources](#resources)
+
 
 ### Definitie van Docker
 
@@ -34,6 +48,7 @@ Je kan ook Docker Desktop gebruiken op Windows, door het Windows Subsystem for L
 TIP: docker runt eigenlijk als root en moet je dus standaard met sudo rechten gebruiken (aka - elke keer sudo doen.) Om dit te vermijden, kan je de user die je gebruikt toevoegen aan de docker groep met `sudo usermod -aG docker $USER`, en dan weer even in/uitloggen van je shell. Doe dit enkel voor lokaal testen - het spreekt voor zich dat dit technisch gezien een veiligheidsrisico is - maar het is wel lekker handig.
 
 ### Docker run command
+
 Om de basis uit te voeren, kan je met de command line werken met 'docker run'. Hier zijn enkele basisoperaties om containers en images te beheren:
 
 Container starten: `docker run  hello-world`
@@ -47,18 +62,24 @@ Image verwijderen: `docker rmi <image_id/naam>`
 Runnende containers bekijken: `docker ps`
 
 ## "Advanced" stuff:
+
 ### Docker Compose
+
 In plaats van te werken met docker run commando's, kan je voor complexe uitwerkingen of voor een beter overzicht werken met docker compose. Wat is het? Het is eigenlijk een docker run commando omgezet naar YML-formaat, dat je opslaat als een "docker-compose.yml" file. ALs je dan "docker-compose up" uitvoert, zal Docker de containers starten volgens de configuratie in de YML file. Dit is handig voor complexe configuraties, zoals een webserver met een database en een caching server. Je kan dan alles in één file opslaan en met één commando starten. Dit is ook handig voor het delen van configuraties met anderen, omdat je de YML file kan toevoegen aan je git repository bijvoorbeeld. 
+
 ### Volume binding
+
 Je kan werken via Docker volumes om persistent data bij te houden; doe je dit niet, dan ben je al je data van in je container kwijt wanneer deze wordt verwijderd of crasht - niet altijd ideaal. Volume binding is een manier om bepaalde mappen/bestanden binnen je container te binden aan mappen/bestanden op je host machine. Zo kan je bijvoorbeeld een database in een container draaien, maar de data van de database opslaan op je host machine. Dit is handig voor het maken van backups, of voor het delen van data tussen containers.
+
 ### Docker networking
-Het concept van Docker Networking wordt heel snel ingewikkeld. Het voornaamste om te weten is dat Docker containers standaard geïsoleerd zijn van de rest van het netwerk. Dit betekent dat ze niet zomaar kunnen communiceren met andere containers of met de host machine. Docker heeft een aantal netwerkmodussen die je kan gebruiken om containers met elkaar te laten communiceren.
+
+Het concept van Docker Networking wordt heel snel ingewikkeld. Het voornaamste om te weten is dat Docker containers kunnen geïsoleerd zijn van de rest van het netwerk. Dit betekent dat ze niet zomaar kunnen communiceren met andere containers of met de host machine. Docker heeft een aantal netwerkmodussen die je kan gebruiken om containers met elkaar te laten communiceren.
 
 Dit is handig voor het maken van complexe netwerken, om structuur te behouden als je meerdere gelijkaardige netwerken hebt die niet met elkaar mogen/moeten communiceren of als je graag een beetje oefent met netwerken.
 
 ### Demo via GitHub
 In deze GitHub repo, naast de markdown, vind je ook een docker-compose.yml file. Deze is een voorbeeld van hoe je met Docker een minecraft server kan opstarten! Er volgt een kort voorbeeld, maar de flow is de volgende:
-1. Clone deze repo naar je lokale machine
+1. Clone deze repo naar je lokale/virtuele machine
 2. Open een terminal in de map van de repo
 3. Voer `docker-compose up` uit
 4. Wacht even, en je Minecraft server zou moeten opstarten
