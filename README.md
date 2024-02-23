@@ -69,6 +69,7 @@ Hier zijn enkele nuttige bronnen en resources die je kan gebruiken (maar er zijn
 - [Docker install documentation](https://docs.docker.com/engine/install/)
 - [Docker Compose documentation](https://docs.docker.com/compose/)
 - [Docker Networking documentation](https://docs.docker.com/network/)
+- [Composerize - run command to docker-compose](https://composerize.com/)
 - [Docker documentation](https://docs.docker.com/)
 - [DockerHub](https://hub.docker.com/)
 - [Docker cheat sheet](https://docs.docker.com/get-started/docker_cheatsheet.pdf)
