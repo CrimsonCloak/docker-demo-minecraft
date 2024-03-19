@@ -1,0 +1,14 @@
+ersion: '3.8'
+services:
+  vm_llm:
+    container_name: vm_llm     
+    image: vm_llm            
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.05'
+          memory: 768M
+        reservations:
+          cpus: '0.001'
+          memory: 512M
