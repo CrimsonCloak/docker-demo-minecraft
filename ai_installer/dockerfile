@@ -1,0 +1,11 @@
+FROM alpine:latest
+RUN apk add nano
+# installing pip3 and
+RUN apk add openrc --no-cache
+RUN apk update && apk add python3
+RUN apk add py3-pip
+RUN apk add bash
+RUN apk add --no-cache openssh
+RUN apk add git
+RUN echo "starting cron...."
+ENTRYPOINT ["tail", "-f", "/dev/null"]
